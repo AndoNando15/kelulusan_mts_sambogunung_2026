@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "generate_secure_data.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node ./node_modules/vite/bin/vite.js",
+    "build": "node ./node_modules/vite/bin/vite.js build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
