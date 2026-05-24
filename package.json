@@ -1,0 +1,28 @@
+{
+  "name": "mts-web-kelulusan",
+  "version": "1.0.0",
+  "main": "generate_secure_data.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndoNando15/kelulusan_mts_sambogunung.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndoNando15/kelulusan_mts_sambogunung/issues"
+  },
+  "homepage": "https://github.com/AndoNando15/kelulusan_mts_sambogunung#readme",
+  "description": "",
+  "devDependencies": {
+    "vite": "^8.0.14"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.106.1"
+  }
+}

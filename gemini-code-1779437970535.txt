@@ -1,0 +1,52 @@
+Create a clean, production-ready school graduation announcement system styled for "MTs YKUI Sambogunung" following the official Indonesian Kemenag/Kemendikbud design system. 
+
+Instead of a single file, generate the complete codebase structured into a separate modular file and folder architecture as specified below:
+
+1. TARGET DIRECTORY STRUCTURE:
+├── data/
+│   └── database.json
+├── css/
+│   └── style.css
+├── js/
+│   ├── countdown.js
+│   └── app.js
+└── index.html
+
+2. SPECIFIC FILE SPECIFICATIONS:
+
+• data/database.json:
+- Create a valid JSON array containing mock student objects.
+- Each object must include exactly these keys: "no_peserta", "nisn", "nama", "jk", "keterangan" (values: "LULUS" or "TIDAK LULUS"), and "rata_rata" (float value).
+- Provide 3 distinct student data rows for system testing.
+
+• css/style.css:
+- Include the Google Font import statement for 'Inter'.
+- Apply global font-family rules to the body element.
+- Add any extra minor utility or smooth scrollbar tweaks outside default Tailwind CSS classes.
+
+• js/countdown.js:
+- Write the pure JavaScript countdown timer logic.
+- Set a target expiration timestamp. For development/testing purposes, set the default timer to trigger exactly 5 seconds after the script loads.
+- Implement an interval that updates elements with IDs: "days", "hours", "minutes", and "seconds".
+- When the countdown reaches zero, clear the interval, hide the element "#countdown-section", and smoothly show the element "#search-section".
+
+• js/app.js:
+- Create an asynchronous function 'loadStudentData()' that uses the Fetch API to load the data from './data/database.json' into a local array when the window loads.
+- Write a 'handleSearch(event)' function linked to the form submission.
+- It must search the local array for a matching "no_peserta". If not found, trigger a browser alert.
+- If found, map the student values directly into the corresponding text fields of the modal UI.
+- If the student's status is "LULUS", apply a soft green Tailwind background styling to the alert banner block ("#status-banner") with a success message and ensure the print button ("#btn-cetak") is visible.
+- If "TIDAK LULUS", style the banner in soft red with a failure message and completely hide the print button.
+- Exclude individual subject grades entirely; only show the single "rata_rata" metric in a prominent, large bold score layout block.
+- Write a 'closeModal()' function to hide the overlay and reset the search form inputs.
+
+• index.html:
+- Act as the central interface shell using standard responsive Tailwind CSS utility layouts.
+- Link properly to './css/style.css', './js/countdown.js', and './js/app.js' using correct relative paths.
+- Incorporate the FontAwesome CDN stylesheet for modern UI iconography.
+- Apply the school color profile: Deep Islamic green (#0B6623) as the primary tone, clean white boxes, slate gray body text, and sharp gold/yellow (#D4AF37) borders/accents.
+- Header: Include a circular school logo placeholder on the left, "Kementerian Agama Republik Indonesia" tracking tag, a bold main title "PENGUMUMAN KELULUSAN SISWA KELAS IX", and subtitle "MTs YKUI Sambogunung — Tahun Ajaran 2025/2026".
+- Main Card Content: Contains both the "#countdown-section" (showing the 4-digit layout timer blocks) and the hidden "#search-section" (containing the single examination number text input and search action button).
+- Result Modal Overlap: A full-screen fixed dark-tinted backdrop modal container ("#result-modal") that displays the 5 formatted Indonesian rows (1. No. Peserta, 2. NISN, 3. Nama Peserta [UPPERCASE], 4. Jenis Kelamin (JK), 5. Keterangan) inside a clean border layout, followed by the large final average score widget and bottom action buttons.
+
+Ensure all layout labels, notification copy, statuses, and headings use clear, standard Indonesian prose as requested. Provide the full code output separated clearly by their filenames.

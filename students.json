@@ -1,0 +1,57 @@
+[
+  {
+    "id": "2026001",
+    "name": "Ahmad Fauzi",
+    "class": "XI A",
+    "status": "Lulus",
+    "scores": {
+      "Matematika": 95,
+      "Bahasa Inggris": 88,
+      "IPA": 92
+    }
+  },
+  {
+    "id": "2026002",
+    "name": "Budi Santoso",
+    "class": "XI B",
+    "status": "Tidak Lulus",
+    "scores": {
+      "Matematika": 60,
+      "Bahasa Inggris": 55,
+      "IPA": 58
+    }
+  },
+  {
+    "id": "2026003",
+    "name": "Citra Dewi",
+    "class": "XI A",
+    "status": "Lulus",
+    "scores": {
+      "Matematika": 85,
+      "Bahasa Inggris": 90,
+      "IPA": 87
+    }
+  },
+  {
+    "id": "2026004",
+    "name": "Dedi Pratama",
+    "class": "XI C",
+    "status": "Lulus",
+    "scores": {
+      "Matematika": 92,
+      "Bahasa Inggris": 89,
+      "IPA": 94
+    }
+  },
+  {
+    "id": "2026005",
+    "name": "Eka Lestari",
+    "class": "XI B",
+    "status": "Tidak Lulus",
+    "scores": {
+      "Matematika": 58,
+      "Bahasa Inggris": 62,
+      "IPA": 55
+    }
+  }
+]
