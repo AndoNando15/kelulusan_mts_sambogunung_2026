@@ -1,3 +1,5 @@
+import './countdown.js';
+
 // ========== Error Notification ==========
 // Show error modal with custom title and message
 function showError(title, message) {
@@ -76,11 +78,7 @@ async function handleSearch(event) {
     }
 
     // Query Supabase for student record by participant number
-    const { data: student, error } = await supabase
-      .from('students')
-      .select('*')
-      .eq('no_peserta', noPeserta)
-      .single();
+    const { data: student, error } = await supabase.from('students').select('*').eq('no_peserta', noPeserta).single();
 
     if (error) {
       console.error('Supabase query error:', error);
