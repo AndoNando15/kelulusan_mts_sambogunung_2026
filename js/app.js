@@ -30,8 +30,6 @@ function closeModal() {
   document.getElementById('modal-no-peserta').textContent = '';
   document.getElementById('modal-nisn').textContent = '';
   document.getElementById('modal-nama').textContent = '';
-  document.getElementById('modal-jk').textContent = '';
-  document.getElementById('modal-keterangan').textContent = '';
   document.getElementById('modal-rata').textContent = '0';
 
   const statusBanner = document.getElementById('status-banner');
@@ -95,17 +93,15 @@ async function handleSearch(event) {
     document.getElementById('modal-no-peserta').textContent = student.no_peserta;
     document.getElementById('modal-nisn').textContent = student.nisn;
     document.getElementById('modal-nama').textContent = student.nama.toUpperCase();
-    document.getElementById('modal-jk').textContent = student.jk === 'Laki-laki' ? 'Laki-laki' : 'Perempuan';
-    document.getElementById('modal-keterangan').textContent = student.keterangan;
     document.getElementById('modal-rata').textContent = student.rata_rata.toFixed(1);
 
     const statusBanner = document.getElementById('status-banner');
     if (student.keterangan === 'LULUS') {
       statusBanner.className = 'status-banner lulus';
-      statusBanner.innerHTML = '<i class="fas fa-check-circle"></i> SELAMAT! ANDA DINYATAKAN LULUS';
+      statusBanner.innerHTML = '<i class="fas fa-check-circle"></i><span class="status-banner-subtitle">Anda dinyatakan</span><span class="status-banner-title">LULUS</span>';
     } else {
       statusBanner.className = 'status-banner tidak-lulus';
-      statusBanner.innerHTML = '<i class="fas fa-times-circle"></i> MAAF, ANDA DINYATAKAN TIDAK LULUS';
+      statusBanner.innerHTML = '<i class="fas fa-times-circle"></i><span class="status-banner-subtitle">Maaf, Anda dinyatakan</span><span class="status-banner-title">TIDAK LULUS</span>';
     }
 
     document.getElementById('result-modal').classList.add('active');

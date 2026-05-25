@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap');
 
 /* ========== CSS Variables ========== */
+
 :root {
   --navy: #1b4d3e;
   --navy-dark: #0f3026;
@@ -35,6 +36,7 @@
 }
 
 /* ========== Reset & Base ========== */
+
 *,
 *::before,
 *::after {
@@ -48,7 +50,12 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
   color: var(--gray-800);
   min-height: 100vh;
   display: flex;
@@ -57,16 +64,14 @@ body {
   justify-content: center;
   position: relative;
   overflow-x: hidden;
-
   /* Graduation pattern background */
   background-color: #eef6f0;
-  background-image:
-    /* Graduation cap pattern - SVG inline */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg opacity='0.06'%3E%3C!-- Graduation Cap --%3E%3Cpolygon points='40,12 12,26 40,40 68,26' fill='%231b4d3e'/%3E%3Crect x='38' y='28' width='4' height='18' fill='%231b4d3e'/%3E%3Cellipse cx='40' cy='48' rx='14' ry='5' fill='none' stroke='%231b4d3e' stroke-width='2'/%3E%3C!-- Tassel --%3E%3Cline x1='12' y1='26' x2='12' y2='40' stroke='%231b4d3e' stroke-width='2'/%3E%3Ccircle cx='12' cy='42' r='2.5' fill='%231b4d3e'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: /* Graduation cap pattern - SVG inline */ url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg opacity='0.06'%3E%3C!-- Graduation Cap --%3E%3Cpolygon points='40,12 12,26 40,40 68,26' fill='%231b4d3e'/%3E%3Crect x='38' y='28' width='4' height='18' fill='%231b4d3e'/%3E%3Cellipse cx='40' cy='48' rx='14' ry='5' fill='none' stroke='%231b4d3e' stroke-width='2'/%3E%3C!-- Tassel --%3E%3Cline x1='12' y1='26' x2='12' y2='40' stroke='%231b4d3e' stroke-width='2'/%3E%3Ccircle cx='12' cy='42' r='2.5' fill='%231b4d3e'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 100px 100px;
 }
 
 /* Animated floating overlay for extra depth */
+
 body::before {
   content: '';
   position: fixed;
@@ -75,14 +80,14 @@ body::before {
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(ellipse at 15% 20%, rgba(27, 77, 62, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at 85% 80%, rgba(212, 168, 75, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 15% 20%, rgba(27, 77, 62, 0.04) 0%, transparent 50%), radial-gradient(ellipse at 85% 80%, rgba(212, 168, 75, 0.04) 0%, transparent 50%),
     radial-gradient(ellipse at 50% 50%, rgba(27, 77, 62, 0.02) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
 
 /* Smooth scrollbar (WebKit) */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -97,6 +102,7 @@ body::before {
 }
 
 /* ========== Main Content ========== */
+
 .main-content {
   width: 100%;
   max-width: 1100px;
@@ -110,6 +116,7 @@ body::before {
 }
 
 /* ========== Logo Styling ========== */
+
 .logo-container {
   display: flex;
   justify-content: center;
@@ -129,6 +136,7 @@ body::before {
 } */
 
 /* ========== Card Container ========== */
+
 .card {
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(12px);
@@ -148,7 +156,6 @@ body::before {
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -156,6 +163,7 @@ body::before {
 }
 
 /* ========== Section Title ========== */
+
 .section-title {
   text-align: center;
   font-size: 18px;
@@ -167,6 +175,7 @@ body::before {
 }
 
 /* ========== Countdown Section ========== */
+
 .countdown-wrapper {
   text-align: center;
 }
@@ -237,10 +246,11 @@ body::before {
   line-height: 1.5;
   max-width: 700px;
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
 }
 
 /* ========== Search Section ========== */
+
 .search-section {
   text-align: center;
   animation: fadeInUp 0.5s ease-out;
@@ -273,7 +283,9 @@ body::before {
   font-family: inherit;
   color: var(--gray-800);
   background: var(--white);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
   outline: none;
 }
 
@@ -299,7 +311,9 @@ body::before {
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: background 0.3s ease, transform 0.15s ease;
+  transition:
+    background 0.3s ease,
+    transform 0.15s ease;
   white-space: nowrap;
 }
 
@@ -313,6 +327,7 @@ body::before {
 }
 
 /* ========== Modal ========== */
+
 .modal-overlay {
   display: none;
   position: fixed;
@@ -334,7 +349,6 @@ body::before {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
@@ -357,7 +371,6 @@ body::before {
     opacity: 0;
     transform: scale(0.9) translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -365,6 +378,7 @@ body::before {
 }
 
 /* Modal Header */
+
 .modal-header {
   background: linear-gradient(135deg, var(--navy-dark), var(--navy));
   color: var(--white);
@@ -413,42 +427,126 @@ body::before {
   background: rgba(255, 255, 255, 0.3);
 }
 
+/* Modal header logo */
+
+.modal-header-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.modal-school-logo {
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--white);
+  padding: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 600px) {
+  .modal-school-logo {
+    width: 140px;
+  }
+
+  .modal-container {
+    max-width: 95%;
+    margin: 0 12px;
+  }
+
+  .modal-header {
+    padding: 12px 16px;
+  }
+
+  .modal-header-title {
+    font-size: 14px;
+  }
+
+  .modal-header-subtitle {
+    font-size: 12px;
+  }
+
+  .status-banner-title {
+    font-size: 32px;
+  }
+
+  .status-banner-subtitle {
+    font-size: 12px;
+  }
+
+  .avg-score-value {
+    font-size: 28px;
+  }
+
+  .countdown-number {
+    font-size: 60px;
+  }
+
+  .search-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-btn {
+    width: 100%;
+  }
+}
+
 /* Modal Body */
+
 .modal-body {
   padding: 24px;
 }
 
 /* Status Banner */
+
 .status-banner {
-  padding: 14px 20px;
+  padding: 28px 20px;
   border-radius: var(--radius-sm);
   font-weight: 700;
-  font-size: 15px;
   text-align: center;
   margin-bottom: 20px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
+  width: 100%;
 }
 
 .status-banner.lulus {
   background: var(--green-light);
   color: var(--green-dark);
-  border-left: 5px solid var(--green-success);
+  border: none;
 }
 
 .status-banner.tidak-lulus {
   background: var(--red-light);
   color: var(--red-dark);
-  border-left: 5px solid var(--red-fail);
+  border: none;
+}
+
+.status-banner-subtitle {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status-banner-title {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: 2px;
 }
 
 .status-banner i {
-  font-size: 20px;
+  font-size: 24px;
+  margin-bottom: 8px;
 }
 
 /* Student Details Table */
+
 .student-details {
   width: 100%;
   border-collapse: collapse;
@@ -465,20 +563,28 @@ body::before {
 }
 
 .student-details td {
-  padding: 10px 8px;
+  padding: 12px 8px;
   vertical-align: top;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .student-details td:first-child {
-  font-weight: 500;
-  color: var(--gray-500);
+  font-weight: 600;
+  color: var(--gray-700);
   white-space: nowrap;
   width: 140px;
+  font-size: 14px;
 }
 
 .student-details td:nth-child(2) {
   width: 12px;
   color: var(--gray-500);
+}
+
+.student-details td:nth-child(3) {
+  font-weight: 500;
+  color: var(--gray-900);
+  font-size: 15px;
 }
 
 .student-details td:last-child {
@@ -487,32 +593,33 @@ body::before {
 }
 
 /* Average Score Card */
+
 .avg-score-card {
   background: linear-gradient(135deg, var(--navy-dark), var(--navy));
   border: 2px solid var(--gray-200);
   border-radius: var(--radius-md);
-  padding: 20px;
+  padding: 12px 16px;
   text-align: center;
   margin-bottom: 24px;
 }
 
 .avg-score-label {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--white);
   text-transform: uppercase;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   line-height: 1.4;
 }
 
 .avg-score-sublabel {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--white);
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .avg-score-value {
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 900;
   color: var(--white);
   line-height: 1;
@@ -600,7 +707,6 @@ body::before {
     opacity: 0;
     transform: translateY(12px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -608,6 +714,7 @@ body::before {
 }
 
 /* Modal Buttons */
+
 .modal-actions {
   display: flex;
   gap: 12px;
@@ -653,6 +760,7 @@ body::before {
 }
 
 /* ========== Error Modal ========== */
+
 .error-modal-overlay {
   display: none;
   position: fixed;
@@ -718,101 +826,83 @@ body::before {
 }
 
 /* ========== Countdown Hidden ========== */
+
 .countdown-section.hidden {
   display: none;
 }
 
 /* ========== Responsive ========== */
+
 @media (max-width: 640px) {
   .main-content {
     padding: 20px 12px;
   }
-
   .card {
     padding: 28px 20px;
   }
-
   .school-logo {
     max-height: 100px;
     max-width: 100%;
   }
-
   .countdown-box {
     padding: 20px 16px;
     width: 100%;
     max-width: 360px;
     box-sizing: border-box;
   }
-
   .countdown-label {
     font-size: 14px;
     margin-bottom: 16px;
     line-height: 1.4;
   }
-
   .countdown-grid {
     gap: 6px;
   }
-
   .countdown-number {
     font-size: 32px;
   }
-
   .countdown-item {
     min-width: 50px;
   }
-
   .countdown-separator {
     font-size: 24px;
   }
-
   .countdown-unit {
     font-size: 11px;
     margin-top: 4px;
   }
-
   .search-form {
     flex-direction: column;
   }
-
   .search-btn {
     justify-content: center;
   }
-
   .modal-overlay {
     padding: 10px;
   }
-
   .modal-container {
     max-height: 90vh;
   }
-
   .modal-body {
     padding: 16px;
   }
-
   .student-details td {
     padding: 8px 4px;
     font-size: 13px;
   }
-
   .student-details td:first-child {
     width: 115px;
   }
-
   .avg-score-card {
     padding: 16px;
     margin-bottom: 16px;
   }
-
   .avg-score-value {
     font-size: 40px;
   }
-
   .modal-actions {
     flex-direction: column;
   }
-
   .btn {
     justify-content: center;
   }
@@ -822,41 +912,33 @@ body::before {
   .card {
     padding: 24px 16px;
   }
-
   .school-logo {
     max-height: 80px;
   }
-
   .countdown-box {
     padding: 16px 8px;
     max-width: 290px;
   }
-
   .countdown-label {
     font-size: 12px;
     margin-bottom: 12px;
   }
-
   .countdown-separator {
     display: none;
   }
-
   .countdown-grid {
     gap: 8px;
     justify-content: space-around;
   }
-
   .countdown-item {
     min-width: 52px;
     background: rgba(255, 255, 255, 0.06);
     border-radius: var(--radius-sm);
     padding: 6px 2px;
   }
-
   .countdown-number {
     font-size: 24px;
   }
-
   .countdown-unit {
     font-size: 9px;
     color: var(--gray-400);
@@ -864,16 +946,15 @@ body::before {
 }
 
 /* ========== Print Styles ========== */
+
 @media print {
   body {
     background: white !important;
     background-image: none !important;
   }
-
   body::before {
     display: none;
   }
-
   .search-section,
   .modal-overlay,
   .error-modal-overlay {
