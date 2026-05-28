@@ -447,49 +447,40 @@ body::before {
 }
 
 /* Responsive adjustments for mobile */
+
 @media (max-width: 600px) {
   .modal-school-logo {
     width: 140px;
   }
-
   .modal-container {
     max-width: 95%;
     margin: 0 12px;
   }
-
   .modal-header {
     padding: 12px 16px;
   }
-
   .modal-header-title {
     font-size: 14px;
   }
-
   .modal-header-subtitle {
     font-size: 12px;
   }
-
   .status-banner-title {
     font-size: 32px;
   }
-
   .status-banner-subtitle {
     font-size: 12px;
   }
-
   .avg-score-value {
     font-size: 28px;
   }
-
   .countdown-number {
     font-size: 60px;
   }
-
   .search-form {
     flex-direction: column;
     gap: 10px;
   }
-
   .search-btn {
     width: 100%;
   }
@@ -650,8 +641,8 @@ body::before {
 }
 
 .thankyou-icon {
-  width: 44px;
-  height: 44px;
+  width: 33px;
+  height: 33px;
   border-radius: 50%;
   display: grid;
   place-items: center;
