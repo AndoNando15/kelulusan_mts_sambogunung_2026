@@ -68,9 +68,7 @@ async function handleSearch(event) {
     try {
       const module = await import('./supabaseClient.js');
       supabase = module.supabase;
-      console.log('Supabase client initialized');
     } catch (e) {
-      console.error('Failed to load Supabase client:', e);
       showError('Kesalahan Sistem', 'Tidak dapat menghubungkan ke database.');
       return;
     }
@@ -79,7 +77,6 @@ async function handleSearch(event) {
     const { data: student, error } = await supabase.from('students').select('*').eq('no_peserta', noPeserta).single();
 
     if (error) {
-      console.error('Supabase query error:', error);
       if (error.code === 'PGRST116') {
         showError('Data Tidak Ditemukan', 'Nomor peserta yang Anda masukkan tidak terdaftar. Silakan periksa kembali.');
       } else {
@@ -89,7 +86,6 @@ async function handleSearch(event) {
     }
 
     // Populate modal fields
-    console.log('Student record fetched:', student);
     document.getElementById('modal-no-peserta').textContent = student.no_peserta;
     document.getElementById('modal-nisn').textContent = student.nisn;
     document.getElementById('modal-nama').textContent = student.nama.toUpperCase();
@@ -106,7 +102,6 @@ async function handleSearch(event) {
 
     document.getElementById('result-modal').classList.add('active');
   } catch (err) {
-    console.error('Unexpected error:', err);
     showError('Kesalahan Sistem', 'Terjadi kesalahan saat memproses data.');
   } finally {
     setLoading(false);
