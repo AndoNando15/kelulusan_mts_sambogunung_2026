@@ -60,11 +60,10 @@
           <p class="countdown-notice">Formulir pengecekan nomor peserta akan muncul setelah hitungan mundur berakhir. Pastikan Anda memiliki Nomor Peserta Ujian Anda.</p>
         </section>
 
-        <!-- Search Section (hidden initially) -->
         <section id="search-section" class="search-section hidden">
-          <p class="search-label">Masukkan Nomor Peserta Ujian Anda untuk melihat hasil kelulusan</p>
+          <p class="search-label">Masukkan Nomor Peserta atau NISN untuk melihat hasil kelulusan</p>
           <form id="search-form" class="search-form" onsubmit="handleSearch(event)">
-            <input type="text" id="search-input" class="search-input" placeholder="Contoh: 001" autocomplete="off" />
+            <input type="text" id="search-input" class="search-input" placeholder="Masukkan Nomor Peserta atau NISN" autocomplete="off" />
             <button type="submit" class="search-btn" id="btn-search"><i class="fas fa-search"></i> Cari</button>
           </form>
         </section>
@@ -95,28 +94,40 @@
           <table class="student-details">
             <tbody>
               <tr>
-                <td>1. No. Peserta</td>
+                <td><i class="fas fa-id-card"></i> Nomor Peserta</td>
                 <td>:</td>
                 <td id="modal-no-peserta"></td>
               </tr>
               <tr>
-                <td>2. NISN</td>
+                <td><i class="fas fa-address-card"></i> NISM</td>
+                <td>:</td>
+                <td id="modal-nism"></td>
+              </tr>
+              <tr>
+                <td><i class="fas fa-id-badge"></i> NISN</td>
                 <td>:</td>
                 <td id="modal-nisn"></td>
               </tr>
               <tr>
-                <td>3. Nama Siswa</td>
+                <td><i class="fas fa-user"></i> Nama Peserta</td>
                 <td>:</td>
                 <td id="modal-nama"></td>
               </tr>
             </tbody>
           </table>
 
-          <!-- Average Score -->
-          <div class="avg-score-card">
-            <p class="avg-score-label">Nilai Rataan</p>
-            <!-- <p class="avg-score-sublabel">(Rata-rata)</p> -->
-            <p class="avg-score-value" id="modal-rata">0</p>
+          <!-- Score Section -->
+          <div class="score-box">
+            <div class="score-row">
+              <span class="score-label">Jumlah Nilai</span>
+              <span class="score-colon">:</span>
+              <span class="score-value" id="modal-jumlah-nilai">0</span>
+            </div>
+            <div class="score-row">
+              <span class="score-label">Rata-Rata</span>
+              <span class="score-colon">:</span>
+              <span class="score-value" id="modal-rata">0</span>
+            </div>
           </div>
 
           <!-- Thank You Section -->
@@ -140,7 +151,7 @@
           <i class="fas fa-exclamation-circle"></i>
         </div>
         <p class="error-title" id="error-title">Data Tidak Ditemukan</p>
-        <p class="error-message" id="error-message">Nomor peserta yang Anda masukkan tidak terdaftar. Silakan periksa kembali.</p>
+        <p class="error-message" id="error-message">Data tidak ditemukan. Pastikan Nomor Peserta atau NISN yang Anda masukkan sudah benar.</p>
         <button class="error-close-btn" onclick="closeErrorModal()">OK, Mengerti</button>
       </div>
     </div>

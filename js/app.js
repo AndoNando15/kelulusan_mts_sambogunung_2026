@@ -31,19 +31,19 @@ function validateStudentData(student) {
 }
 
 /**
- * Validate input nomor peserta
+ * Validate input nomor peserta atau NISN
  */
 function validateNomorPeserta(noPeserta) {
   const trimmed = noPeserta.trim();
 
-  // Must be numeric and at least 3 digits
-  if (!/^\d{3,}$/.test(trimmed)) {
-    return { valid: false, message: 'Nomor peserta harus berupa angka minimal 3 digit.' };
+  // Must be at least 3 digits
+  if (trimmed.length < 3) {
+    return { valid: false, message: 'Input harus minimal 3 karakter.' };
   }
 
-  // Maximum 10 digits
-  if (trimmed.length > 10) {
-    return { valid: false, message: 'Nomor peserta terlalu panjang.' };
+  // Maximum length extended to support Nomot Peserta format (e.g. 26-13-19-2-0596-0001)
+  if (trimmed.length > 25) {
+    return { valid: false, message: 'Input terlalu panjang.' };
   }
 
   return { valid: true, value: trimmed };
@@ -135,8 +135,12 @@ function closeModal() {
   if (input) input.value = '';
 
   document.getElementById('modal-no-peserta').textContent = '';
+  const nismEl = document.getElementById('modal-nism');
+  if (nismEl) nismEl.textContent = '';
   document.getElementById('modal-nisn').textContent = '';
   document.getElementById('modal-nama').textContent = '';
+  const jmlEl = document.getElementById('modal-jumlah-nilai');
+  if (jmlEl) jmlEl.textContent = '0';
   document.getElementById('modal-rata').textContent = '0';
 
   const statusBanner = document.getElementById('status-banner');
@@ -216,17 +220,21 @@ function displayResult(student) {
   // Small delay untuk smooth transition antar modal
   setTimeout(() => {
     document.getElementById('modal-no-peserta').textContent = student.no_peserta;
+    const nismEl = document.getElementById('modal-nism');
+    if (nismEl) nismEl.textContent = student.nism || '-';
     document.getElementById('modal-nisn').textContent = student.nisn;
     document.getElementById('modal-nama').textContent = student.nama.toUpperCase();
-    document.getElementById('modal-rata').textContent = student.rata_rata.toFixed(1);
+    const jmlEl = document.getElementById('modal-jumlah-nilai');
+    if (jmlEl) jmlEl.textContent = student.jumlah_nilai || '0';
+    document.getElementById('modal-rata').textContent = student.rata_rata.toFixed(2);
 
     const statusBanner = document.getElementById('status-banner');
     if (student.keterangan === 'LULUS') {
       statusBanner.className = 'status-banner lulus';
-      statusBanner.innerHTML = '<i class="fas fa-check-circle"></i><span class="status-banner-subtitle">Anda dinyatakan</span><span class="status-banner-title">LULUS</span>';
+      statusBanner.innerHTML = '<i class="fas fa-check-circle"></i><span class="status-banner-subtitle">Selamat! Anda dinyatakan</span><span class="status-banner-title">LULUS</span>';
     } else {
       statusBanner.className = 'status-banner tidak-lulus';
-      statusBanner.innerHTML = '<i class="fas fa-times-circle"></i><span class="status-banner-subtitle">Maaf, Anda dinyatakan</span><span class="status-banner-title">TIDAK LULUS</span>';
+      statusBanner.innerHTML = '<i class="fas fa-info-circle"></i><span class="status-banner-subtitle">Maaf, Anda dinyatakan</span><span class="status-banner-title">TIDAK LULUS</span>';
     }
 
     document.getElementById('result-modal').classList.add('active');
@@ -293,7 +301,7 @@ async function handleSearch(event) {
     let student;
     let error;
     try {
-      const result = await withTimeout(supabase.from('students').select('*').eq('no_peserta', noPeserta).single(), REQUEST_TIMEOUT_MS);
+      const result = await withTimeout(supabase.from('students').select('*').or(`no_peserta.eq.${noPeserta},nisn.eq.${noPeserta}`).single(), REQUEST_TIMEOUT_MS);
       student = result.data;
       error = result.error;
     } catch (timeoutError) {
@@ -310,7 +318,7 @@ async function handleSearch(event) {
     if (error) {
       hideLoading();
       if (error.code === 'PGRST116') {
-        showError('Data Tidak Ditemukan', 'Nomor peserta yang Anda masukkan tidak terdaftar. Silakan periksa kembali.');
+        showError('Data Tidak Ditemukan', 'Data tidak ditemukan. Pastikan Nomor Peserta atau NISN yang Anda masukkan sudah benar.');
       } else {
         showError('Kesalahan Server', 'Gagal mengambil data dari server. Silakan coba lagi nanti.');
       }
