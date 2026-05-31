@@ -248,6 +248,13 @@ function displayResult(student) {
 async function handleSearch(event) {
   event.preventDefault();
 
+  // SECURITY CHECK: Mencegah bypass menggunakan Inspect Element
+  const targetTime = new Date('2026-06-02T12:00:00+07:00').getTime();
+  if (Date.now() < targetTime) {
+    showError('Akses Ditolak', 'Pengumuman belum dibuka. Harap bersabar menunggu waktu yang telah ditentukan.');
+    return;
+  }
+
   const input = document.getElementById('search-input');
   const noPesertaInput = input.value.trim();
 
